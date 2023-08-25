@@ -12,7 +12,7 @@ podTemplate(label: label,
         stage('Run shell and generate file') {
             container('alpine') {
                 sh 'echo "hello world" > file.txt'
-                sleep 6000
+                sleep 8000
             }
         }
     }
