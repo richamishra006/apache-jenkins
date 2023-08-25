@@ -12,6 +12,7 @@ podTemplate(label: label,
         stage('Run shell and generate file') {
             container('alpine') {
                 sh 'echo "hello world" > $WORKSPACE/k8s-e2e@script/file.txt'
+                sleep 60000
             }
         }
     }
