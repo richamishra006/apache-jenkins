@@ -11,7 +11,7 @@ podTemplate(label: label,
     node(label) {
         stage('Run shell and generate file') {
             container('alpine') {
-                sh 'echo "hello world" > file.txt'
+                sh 'echo "hello world" > $WORKSPACE/k8s-e2e@script/file.txt'
             }
         }
     }
