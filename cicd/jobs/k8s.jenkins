@@ -2,9 +2,6 @@
 
 pipelineJob('k8s-e2e') {
     displayName('Kubernetes Plugin E2E Test')
-    triggers {
-        buildOnCreate()
-    }
 
     definition {
         cpsScm {
