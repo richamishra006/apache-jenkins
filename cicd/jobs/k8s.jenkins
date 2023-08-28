@@ -10,6 +10,10 @@ job('jenkins-operator-job-dsl-seed') {
             }
         }
     }
+    parameters {
+       booleanParam('FLAG', true)
+       choiceParam('BUILD_STAGE', ['stage1 (default)', 'stage2'])
+    }
 }
 
 pipelineJob('k8s-e2e') {
