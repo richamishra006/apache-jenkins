@@ -6,7 +6,6 @@ podTemplate(label: label,
         ],
 ) {
     node(label) {
-        def selectedStage = params.BUILD_STAGE ?: 'none'
 
         stage('Build Stage 1') {
             if (selectedStage == 'stage1') {

@@ -15,6 +15,11 @@ job('jenkins-operator-job-dsl-seed') {
 pipelineJob('k8s-e2e') {
     displayName('Kubernetes Plugin E2E Test')
 
+
+    parameters {
+        choice(name: 'BUILD_STAGE', choices: ['stage1', 'stage2'], description: 'Select the stage to build')
+    }
+
     definition {
         cpsScm {
             scm {
