@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 def label = "k8sagent-e2e"
 
 podTemplate(label: label,
@@ -9,12 +11,7 @@ podTemplate(label: label,
         def selectedStage = params.BUILD_STAGE ?: 'none'
 
         stage('Build Stage 1') {
-            when {
-                expression {
-                    return selectedStage == 'stage1'
-                }
-            }
-            steps {
+            if (selectedStage == 'stage1') {
                 container('alpine') {
                     sh 'echo "building stage1" > file.txt'
                 }
@@ -22,12 +19,7 @@ podTemplate(label: label,
         }
 
         stage('Build Stage 2') {
-            when {
-                expression {
-                    return selectedStage == 'stage2'
-                }
-            }
-            steps {
+            if (selectedStage == 'stage2') {
                 container('alpine') {
                     sh 'echo "building stage2" > file.txt'
                 }
@@ -35,4 +27,3 @@ podTemplate(label: label,
         }
     }
 }
-
