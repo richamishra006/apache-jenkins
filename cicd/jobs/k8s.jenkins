@@ -14,14 +14,12 @@ pipelineJob('k8s-e2e') {
                 }
             }
             scriptPath('cicd/pipelines/k8s.jenkins')
-
-
-            post { 
-              always { 
-                echo 'I will always say Hello again!'
-            }
-            }
         }
     }
 
+    post {
+        always {
+            echo 'I will always say Hello again!'
+        }
+    }
 }
