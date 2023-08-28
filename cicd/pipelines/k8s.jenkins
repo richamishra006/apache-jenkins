@@ -6,9 +6,15 @@ podTemplate(label: label,
         ],
 ) {
     node(label) {
+        def selectedStage = params.BUILD_STAGE ?: 'none'
 
         stage('Build Stage 1') {
-            if (selectedStage == 'stage1') {
+            when {
+                expression {
+                    return selectedStage == 'stage1'
+                }
+            }
+            steps {
                 container('alpine') {
                     sh 'echo "building stage1" > file.txt'
                 }
@@ -16,7 +22,12 @@ podTemplate(label: label,
         }
 
         stage('Build Stage 2') {
-            if (selectedStage == 'stage2') {
+            when {
+                expression {
+                    return selectedStage == 'stage2'
+                }
+            }
+            steps {
                 container('alpine') {
                     sh 'echo "building stage2" > file.txt'
                 }
@@ -24,3 +35,4 @@ podTemplate(label: label,
         }
     }
 }
+
