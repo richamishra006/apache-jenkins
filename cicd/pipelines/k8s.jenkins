@@ -22,7 +22,6 @@ podTemplate(label: label,
                 steps {
                     container('alpine') {
                         sh 'echo "building stage1" > file.txt'
-                        sleep 8000
                     }
                 }
             }
@@ -36,7 +35,6 @@ podTemplate(label: label,
                 steps {
                     container('alpine') {
                         sh 'echo "building stage2" > file.txt'
-                        sleep 8000
                     }
                 }
             }
