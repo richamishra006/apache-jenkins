@@ -11,7 +11,6 @@ job('jenkins-operator-job-dsl-seed') {
         }
     }
     parameters {
-       booleanParam('FLAG', true)
        choiceParam('BUILD_STAGE', ['stage1 (default)', 'stage2'])
     }
 }
