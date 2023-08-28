@@ -8,6 +8,12 @@ podTemplate(label: label,
         ],
 ) {
     node(label) {
+        properties([
+            parameters([
+                choice(name: 'BUILD_STAGE', choices: ['stage1', 'stage2'], description: 'Select the stage to build')
+            ])
+        ])
+        
         def selectedStage = params.BUILD_STAGE ?: 'none'
 
         stage('Build Stage 1') {
